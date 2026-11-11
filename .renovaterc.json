@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "config:recommended"
+  ],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "groupName": "golang.org/x",
+      "matchPackageNames": [
+        "/golang.org/x/"
+      ]
+    },
+    {
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "automerge": true
+    }
+  ],
+  "rebaseWhen": "behind-base-branch"
+}

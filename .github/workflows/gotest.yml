@@ -1,0 +1,19 @@
+name: gotest
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  gotest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+          check-latest: true
+          cache: true
+      - run: go test -v ./...
